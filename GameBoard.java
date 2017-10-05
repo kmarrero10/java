@@ -24,11 +24,6 @@ public class GameBoard {
         }
     }
 
-    //Return deep string representation of board data
-    public void getBoard() {
-        System.out.println(Arrays.deepToString(gameBoard));
-    }
-
     public void displayBoard() {
 
         for (int row=0; row <gameBoard.length; row++) {
@@ -138,27 +133,6 @@ public class GameBoard {
         return false;
     }
 
-//    public void machineMove() {
-//
-//        Random random = new Random();
-//
-//        int row, col;
-//        int counter = 1;
-//
-//        do {
-//             row = random.nextInt(3);
-//             col = random.nextInt(3);
-//
-//
-//        } while (notValid(row + 1, col + 1) && !lastMove(row, col, counter));
-//
-//        gameBoard[row][col] = 'O';
-//
-//        machineMoves = moves.append("-(" + row + ", " + col + ")").toString();
-//        counter ++;
-//
-//    }
-
     public void machineMove(int counter) {
 
         int row, col;
@@ -207,50 +181,7 @@ public class GameBoard {
                System.out.println("IO Exception");
            }
        }
-
-
-//    public static ArrayList<Integer> readFile() {
-//
-//        String path = "/Users/kylemarrero/Desktop/ticTacToe/machineMoves.txt";
-//        String file = "machineMoves.txt";
-//        String line = null, tmp;
-//        ArrayList<Integer> arrayList = new ArrayList<Integer>();
-//        Random random = new Random();
-//
-//
-//        try {
-//            FileInputStream in = new FileInputStream(path);
-//            BufferedReader br = new BufferedReader(new InputStreamReader(in));
-//
-//            while ((tmp = br.readLine()) != null) {
-//
-//                line = tmp;
-//            }
-//
-//            String moves = line;
-//
-//            moves = moves.replaceAll("[^0-9]+", "");
-//
-//            for (int i = 0; i < moves.length(); i++) {
-//                char a = moves.charAt(i);
-//                Integer x = Character.getNumericValue(a);
-//                arrayList.add(x);
-//            }
-//            in.close();
-//            br.close();
-//        } catch (FileNotFoundException e) {
-//            System.out.println("Error opening file: " + file);
-//            //e.printStackTrace();
-//        } catch (IOException e) {
-//            System.out.println("IO Exception");
-//            //e.printStackTrace();
-//        } catch (NullPointerException e) {
-//            System.out.println("No lines to read.");
-//        }
-//
-//        return arrayList;
-//    }
-
+       
     //Method meant to do a final check on random index generation, to make sure
     //indices from previous combo was not used
 
