@@ -8,23 +8,6 @@ public class TicTacToe {
         GameBoard myGame = new GameBoard();
        int counter = 1;
 
-//       while (myGame.gameIsGoing() && counter < 10) {
-//           if (counter % 2 == 0) {
-//            myGame.askPlayer('O');
-//           }
-//           else myGame.askPlayer('X');
-//           counter++;
-//
-//           System.out.println("\n");
-//           myGame.displayBoard();
-//           myGame.checkWinner();
-//
-//           if (counter == 10) {
-//               System.out.println("It's a draw!");
-//           }
-//       }
-
-
         while (myGame.gameIsGoing() && counter < 10) {
             if (counter % 2 == 0) {
                 myGame.machineMove(counter);
