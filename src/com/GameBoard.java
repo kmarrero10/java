@@ -13,8 +13,6 @@ public class GameBoard {
     StringBuilder moves = new StringBuilder();
     ArrayList<Integer> prevMoves = readFile();
 
-    int intMoves;
-
     //Constructor to initialize game board and assign empty spaces
     public GameBoard() {
         gameBoard = new char[3][3];
@@ -50,8 +48,7 @@ public class GameBoard {
             }
         } else
             return false;
-    } //make move
-
+    }
 
     //This method will return if the game is still active
 
@@ -155,20 +152,9 @@ public class GameBoard {
 
         machineMoves = moves.append("-(" + row + ", " + col + ")").toString();
 
-    }
-
+        }
 
        public void writeFile() {
-           String path = "/Users/kylemarrero/Desktop/ticTacToe/machineMoves.txt";
-           String file = "machineMoves.txt";
-           Scanner scan = null;
-
-           try {
-               scan = new Scanner(new File(path));
-           } catch (FileNotFoundException e) {
-               System.out.println("Error opening file " + file);
-               System.exit(0);
-           }
 
            try {
 
@@ -181,40 +167,6 @@ public class GameBoard {
                System.out.println("IO Exception");
            }
        }
-
-    //Method meant to do a final check on random index generation, to make sure
-    //indices from previous combo was not used
-
-    public static boolean lastMove(int row, int col, int counter) {
-
-
-       try {
-
-           int i = readFile().size();
-           int x = readFile().get(i - 2);
-           int y = readFile().get(i - 1);
-
-           if (counter > 2 && (row != x || col != y)) {
-               return true;
-           }
-       } catch (NullPointerException e) {
-           System.out.println("No lines to read");
-       } catch (ArrayIndexOutOfBoundsException e) {
-           try {
-               Random rand = new Random();
-               int x = rand.nextInt(3);
-               int y = rand.nextInt(3);
-               PrintWriter print = new PrintWriter(new BufferedWriter(new FileWriter("/Users/kylemarrero/Desktop/ticTacToe/machineMoves.txt", true)));
-               print.print(x);
-               print.print(y);
-               print.close();
-           } catch (IOException ex) {
-               System.out.println("IO Exception w/in lastMove catch");
-               ex.printStackTrace();
-           }
-       }
-        return false;
-    }
 
     public static ArrayList<Integer> readFile() {
 
